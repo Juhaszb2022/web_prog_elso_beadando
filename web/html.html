@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-programozás-1 Előadás Házi feladat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Web-programozás-1 Előadás Házi feladat</h1>
+        <!--vízszintes menü-->
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Tablázat</a></li>
+                <li><a href="html.html" id="activ">Html</a></li>
+                <li><a href="ChartJS.html">ChartJS</a></li>
+                <li><a href="AJAX.html">AJAX</a></li>
+                <li><a href="OOJS.html">OOJS</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <div id="content">
+
+        <!--oldal tartalma-->
+        <div id="contener">
+            <!--közepsö block-->
+            <div id="midel">
+                <div><h1>Web Storage példa</h1>
+                    <button onclick="saveToLocalStorage()">Adat mentése</button>
+                    <button onclick="loadFromLocalStorage()">Adat betöltése</button>
+                    <p id="storage-result"></p>
+                    
+                    <h1>Web Worker példa</h1>
+                    <button onclick="startWorker()">Worker indítása</button>
+                    <p id="worker-result"></p>
+                    
+                    <h1>Server-Sent Events példa</h1>
+                    <p id="sse-result">Várakozás az adatra...</p>
+                    
+                    <h1>Geolocation API példa</h1>
+                    <button onclick="getLocation()">Helyzet lekérése</button>
+                    <p id="geo-result"></p>
+                    
+                    <h1>Drag and Drop API példa</h1>
+                    <div id="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">Dobd ide!</div>
+                    <div draggable="true" ondragstart="drag(event)" id="draggable-item" style="width:50px; height:50px; background:red;"></div>
+                    
+                    <h1>Canvas példa</h1>
+                    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000;"></canvas>
+                    
+                    <h1>SVG példa</h1>
+                    <svg>
+                        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+                    </svg></div>
+            </div>
+        </div>
+
+    </div>
+    <script src="sript.js"></script>
+    <footer>Juhász Balázs László V7CTOW</footer>
+</body>
+</html>

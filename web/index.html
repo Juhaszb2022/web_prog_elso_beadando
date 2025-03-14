@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-programozás-1 Előadás Házi feladat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Web-programozás-1 Előadás Házi feladat</h1>
+        <!--vízszintes menü-->
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html" id="activ">Tablázat</a></li>
+                <li><a href="html.html">Html</a></li>
+                <li><a href="ChartJS.html">ChartJS</a></li>
+                <li><a href="AJAX.html">AJAX</a></li>
+                <li><a href="OOJS.html">OOJS</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <div id="content">
+
+        <!--oldal tartalma-->
+        <div id="contener">
+            <!--közepsö block-->
+            <div id="midel">
+                <div>
+                    <div class="employee-form">
+                        <form onsubmit="event.preventDefault();onFormSubmit();">
+                            <div>
+                                <label>Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+                                <input type="text" name="fullName" id="fullName">
+                            </div>
+                            <div>
+                                <label>Email Id</label><label class="validation-error hide" id="emailValidationError">This field is required.</label>
+                                <input type="text" name="email" id="email">
+                            </div>
+                            <div>
+                                <label>Salary</label><label class="validation-error hide" id="salaryValidationError">This field is required.</label>
+                                <input type="number" name="salary" id="salary">
+                            </div>
+                            <div>
+                                <label>City</label><label class="validation-error hide" id="cityValidationError">This field is required.</label>
+                                <input type="text" name="city" id="city">
+                            </div>
+                            <div  class="form-action-buttons">
+                                <input type="submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class = "employees-table">
+                        <table class="list" id="employeeList">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email Id</th>
+                                    <th>Salary</th>
+                                    <th>City</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                            </tbody>
+                        </table>
+
+                    </div>     
+                </div>
+                <label><input type="text" id="myInput" onkeyup="myFunction()" placeholder="kereses" title="írd be a keresni kivánt"></input></label>
+            </div>
+        </div>
+
+    </div>
+    <footer>Juhász Balázs László V7CTOW</footer>
+    <script src="sript.js"></script>
+    
+</body>
+</html>

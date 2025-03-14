@@ -1,0 +1,11 @@
+li{
+    display: inline;
+}
+#activ{
+    border-bottom: solid 5px green;
+}
+td{
+    border: 1px solid black;
+    margin: 0px;
+    padding: 2px;
+}
