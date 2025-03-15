@@ -242,3 +242,127 @@ window.onload = function() {
     ctx.fillStyle = "blue";
     ctx.fillRect(10, 10, 100, 50);
 };
+
+const apiUrl = "http://gamf.nhely.hu/ajax2/";
+const userCode = "BBBBBBefg456";
+
+document.getElementById("loadData").addEventListener("click", fetchData);
+document.getElementById("createData").addEventListener("click", createData);
+document.getElementById("updateData").addEventListener("click", updateData);
+document.getElementById("deleteData").addEventListener("click", deleteData);
+document.getElementById("getDataForId").addEventListener("click", getDataForId);
+
+function fetchData() {
+    fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `op=read&code=${userCode}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        let list = document.getElementById("dataList");
+        list.innerHTML = "";
+        let heights = [];
+        
+        data.list.forEach(item => {
+            let li = document.createElement("li");
+            li.textContent = `ID: ${item.id}, Név: ${item.name}, Magasság: ${item.height}, Súly: ${item.weight}`;
+            list.appendChild(li);
+            heights.push(parseFloat(item.height));
+        });
+        
+        if (heights.length > 0) {
+            let sum = heights.reduce((a, b) => a + b, 0);
+            let avg = sum / heights.length;
+            let max = Math.max(...heights);
+            document.getElementById("stats").textContent = `Összeg: ${sum}, Átlag: ${avg.toFixed(2)}, Legnagyobb: ${max}`;
+        }
+    });
+}
+
+function createData() {
+    let name = document.getElementById("name").value.trim();
+    let height = document.getElementById("height").value.trim();
+    let weight = document.getElementById("weight").value.trim();
+    
+    if (!validateInput(name, height, weight)) return;
+    
+    fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `op=create&name=${name}&height=${height}&weight=${weight}&code=${userCode}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("createResponse").textContent = data.affectedRows ? "Sikeres hozzáadás!" : "Hiba történt!";
+        fetchData();
+    });
+}
+
+function getDataForId() {
+    let id = document.getElementById("updateId").value.trim();
+    if (!id) return;
+    
+    fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `op=read&code=${userCode}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        let item = data.list.find(i => i.id === id);
+        if (item) {
+            document.getElementById("updateName").value = item.name;
+            document.getElementById("updateHeight").value = item.height;
+            document.getElementById("updateWeight").value = item.weight;
+        }
+    });
+}
+
+function updateData() {
+    let id = document.getElementById("updateId").value.trim();
+    let name = document.getElementById("updateName").value.trim();
+    let height = document.getElementById("updateHeight").value.trim();
+    let weight = document.getElementById("updateWeight").value.trim();
+    
+    if (!id || !validateInput(name, height, weight)) return;
+    
+    fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `op=update&id=${id}&name=${name}&height=${height}&weight=${weight}&code=${userCode}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("updateResponse").textContent = data.affectedRows ? "Sikeres módosítás!" : "Hiba történt!";
+        fetchData();
+    });
+}
+
+function deleteData() {
+    let id = document.getElementById("deleteId").value.trim();
+    if (!id) return;
+    
+    fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `op=delete&id=${id}&code=${userCode}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("deleteResponse").textContent = data.affectedRows ? "Sikeres törlés!" : "Hiba történt!";
+        fetchData();
+    });
+}
+
+function validateInput(name, height, weight) {
+    if (!name || !height || !weight) {
+        alert("Minden mezőt ki kell tölteni!");
+        return false;
+    }
+    if (name.length > 30 || height.length > 30 || weight.length > 30) {
+        alert("A mezők legfeljebb 30 karakter hosszúak lehetnek!");
+        return false;
+    }
+    return true;
+}

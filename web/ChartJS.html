@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-programozás-1 Előadás Házi feladat</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        table { border-collapse: collapse; width: 50%; margin-bottom: 20px; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; cursor: pointer; }
+        th { background-color: #f2f2f2; }
+    </style>
 </head>
 <body>
     <header><h1>Web-programozás-1 Előadás Házi feladat</h1>
@@ -26,7 +32,54 @@
         <div id="contener">
             <!--közepsö block-->
             <div id="midel">
-                <div></div>
+                <div><table id="dataTable">
+                    <tbody>
+                        <script>
+                            let table = document.getElementById("dataTable");
+                            let numbers = [];
+                            for (let i = 0; i < 5; i++) {
+                                let row = table.insertRow();
+                                let rowData = [];
+                                for (let j = 0; j < 5; j++) {
+                                    let cell = row.insertCell();
+                                    let num = Math.floor(Math.random() * 100) + 1;
+                                    cell.textContent = num;
+                                    rowData.push(num);
+                                }
+                                numbers.push(rowData);
+                                row.addEventListener("click", () => updateChart(rowData));
+                            }
+                        </script>
+                    </tbody>
+                </table>
+                
+                <canvas id="chartCanvas" width="400" height="200"></canvas>
+                <script>
+                    let ctx = document.getElementById("chartCanvas").getContext("2d");
+                    let chart = new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: ["1", "2", "3", "4", "5"],
+                            datasets: [{
+                                label: "Kiválasztott sor adatai",
+                                data: [],
+                                borderColor: "blue",
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: { beginAtZero: true }
+                            }
+                        }
+                    });
+            
+                    function updateChart(rowData) {
+                        chart.data.datasets[0].data = rowData;
+                        chart.update();
+                    }
+                </script></div>
             </div>
         </div>
 

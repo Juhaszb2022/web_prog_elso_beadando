@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-programozás-1 Előadás Házi feladat</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .animal { margin: 10px; padding: 10px; border: 1px solid black; display: inline-block; cursor: pointer; }
+    </style>
 </head>
 <body>
     <header><h1>Web-programozás-1 Előadás Házi feladat</h1>
@@ -26,7 +30,44 @@
         <div id="contener">
             <!--közepsö block-->
             <div id="midel">
-                <div></div>
+                <div> <script>
+                    class Animal {
+                        constructor(name, sound) {
+                            this.name = name;
+                            this.sound = sound;
+                        }
+                        makeSound() {
+                            alert(`${this.name} azt mondja: ${this.sound}`);
+                        }
+                    }
+            
+                    class Dog extends Animal {
+                        constructor(name) {
+                            super(name, "Vau vau!");
+                        }
+                    }
+            
+                    class Cat extends Animal {
+                        constructor(name) {
+                            super(name, "Miau!");
+                        }
+                    }
+            
+                    const animals = [
+                        new Dog("Bodri"),
+                        new Cat("Cirmi"),
+                        new Dog("Morzsi"),
+                        new Cat("Whiskers")
+                    ];
+            
+                    animals.forEach(animal => {
+                        const div = document.createElement("div");
+                        div.className = "animal";
+                        div.textContent = animal.name;
+                        div.onclick = () => animal.makeSound();
+                        document.body.appendChild(div);
+                    });
+                </script></div>
             </div>
         </div>
 

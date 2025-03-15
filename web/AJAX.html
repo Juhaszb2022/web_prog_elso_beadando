@@ -26,7 +26,36 @@
         <div id="contener">
             <!--közepsö block-->
             <div id="midel">
-                <div></div>
+                <div><h1>Adatok kezelése</h1>
+    
+                    <h2>Adatok lekérése</h2>
+                    <button id="loadData">Adatok betöltése</button>
+                    <ul id="dataList"></ul>
+                    <p id="stats"></p>
+                    
+                    <h2>Új adat hozzáadása</h2>
+                    <input type="text" id="name" placeholder="Név" maxlength="30">
+                    <input type="text" id="height" placeholder="Magasság" maxlength="30">
+                    <input type="text" id="weight" placeholder="Súly" maxlength="30">
+                    <button id="createData">Hozzáadás</button>
+                    <p id="createResponse"></p>
+                    
+                    <h2>Adat módosítása</h2>
+                    <input type="text" id="updateId" placeholder="ID">
+                    <button id="getDataForId">Adatok betöltése</button>
+                    <br>
+                    <input type="text" id="updateName" placeholder="Név" maxlength="30">
+                    <input type="text" id="updateHeight" placeholder="Magasság" maxlength="30">
+                    <input type="text" id="updateWeight" placeholder="Súly" maxlength="30">
+                    <button id="updateData">Módosítás</button>
+                    <p id="updateResponse"></p>
+                    
+                    <h2>Adat törlése</h2>
+                    <input type="text" id="deleteId" placeholder="ID">
+                    <button id="deleteData">Törlés</button>
+                    <p id="deleteResponse"></p>
+                    
+                    <script src="sript.js"></script></div>
             </div>
         </div>
 
