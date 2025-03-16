@@ -1,11 +1,53 @@
-li{
-    display: inline;
-}
+.content {
+    max-width: 80%;
+    margin: auto;
+    min-height: 100%;
+    position: relative;
+  }
 #activ{
-    border-bottom: solid 5px green;
+    border-bottom: 5px solid green;
 }
-td{
-    border: 1px solid black;
-    margin: 0px;
-    padding: 2px;
+li{
+  display: inline;
+  padding: 15px;
+}
+.midel{
+  background: rgb(185, 178, 138);
+  border-radius: 16px;
+  padding: 25px;
+  margin: 20px 20px;
+}
+body{
+  background-color: rgb(248, 243, 217);
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  min-height: 96vh;
+}
+header{
+  background-color: rgb(235, 229, 194);
+  width: 100%;
+  padding: auto;
+  text-align: center;
+}
+a{
+  color: black;
+
+}
+footer{
+  background-color: rgb(80, 75, 56);
+  margin-top: auto;
+  border-radius: 16px;
+  padding: 5px;
+  text-align: center;
+  bottom: 0;
+}
+.be_mez_nev{
+  width: 500px;
+}
+input{
+  padding: 5px;
+  border-radius: 8px;
+  border: 0px;
+  margin: 3px;
 }

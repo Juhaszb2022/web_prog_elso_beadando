@@ -20,56 +20,57 @@
             
         </nav>
     </header>
-    <div id="content">
+    <div class="content">
 
         <!--oldal tartalma-->
-        <div id="contener">
+        <div class="contener">
             <!--közepsö block-->
-            <div id="midel">
+            <div class="midel">
                 <div>
+                    
                     <div class="employee-form">
                         <form onsubmit="event.preventDefault();onFormSubmit();">
-                            <div>
-                                <label>Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+                            <div class="be_mez_nev">
+                                <label>Teljes név</label><label class="validation-error hide" id="fullNameValidationError">*</label>
                                 <input type="text" name="fullName" id="fullName">
                             </div>
-                            <div>
-                                <label>Email Id</label><label class="validation-error hide" id="emailValidationError">This field is required.</label>
+                            <div class="be_mez_nev">
+                                <label>Email-cím</label><label class="validation-error hide" id="emailValidationError">*</label>
                                 <input type="text" name="email" id="email">
                             </div>
-                            <div>
-                                <label>Salary</label><label class="validation-error hide" id="salaryValidationError">This field is required.</label>
+                            <div class="be_mez_nev">
+                                <label>Fizetés</label><label class="validation-error hide" id="salaryValidationError">*</label>
                                 <input type="number" name="salary" id="salary">
                             </div>
-                            <div>
-                                <label>City</label><label class="validation-error hide" id="cityValidationError">This field is required.</label>
+                            <div class="be_mez_nev">
+                                <label>Város</label><label class="validation-error hide" id="cityValidationError">*</label>
                                 <input type="text" name="city" id="city">
                             </div>
                             <div  class="form-action-buttons">
-                                <input type="submit" value="Submit">
+                                <input type="submit" value="adatok mentése">
                             </div>
                         </form>
                     </div>
+                    *kötelező elem
+                    <label><input type="text" id="myInput" onkeyup="myFunction()" placeholder="kereses" title="írd be a keresni kivánt"></input></label>
                     <br/>
                     <div class = "employees-table">
                         <table class="list" id="employeeList">
                             <thead>
                                 <tr>
-                                    <th>Full Name</th>
-                                    <th>Email Id</th>
-                                    <th>Salary</th>
-                                    <th>City</th>
-                                    <th>Actions</th>
+                                    <th class="kiir_table">Teljes Név</th>
+                                    <th class="kiir_table">Email-cím</th>
+                                    <th class="kiir_table">Fizetés</th>
+                                    <th class="kiir_table">Város</th>
+                                    <th class="kiir_table">Funkciók</th>
                                 </tr>
                             </thead>
                             <tbody>
                 
                             </tbody>
                         </table>
-
                     </div>     
                 </div>
-                <label><input type="text" id="myInput" onkeyup="myFunction()" placeholder="kereses" title="írd be a keresni kivánt"></input></label>
             </div>
         </div>
 
