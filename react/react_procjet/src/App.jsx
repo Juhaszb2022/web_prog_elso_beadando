@@ -1,18 +1,15 @@
 import { useState } from "react";
+import "./App.css";
 
 export default function App() {
   const [menu, setMenu] = useState("calculator");
 
   return (
-    <div className="p-4 max-w-md mx-auto text-center">
-      <h1 className="text-2xl font-bold mb-4">React Alkalmazás</h1>
-      <div className="flex justify-around mb-4">
-        <button className="p-2 bg-blue-500 text-white rounded" onClick={() => setMenu("calculator")}>
-          Számológép
-        </button>
-        <button className="p-2 bg-green-500 text-white rounded" onClick={() => setMenu("rps")}>
-          Kő-Papír-Olló
-        </button>
+    <div className="container">
+      <h1 className="title">React Alkalmazás</h1>
+      <div className="menu">
+        <button className="button" onClick={() => setMenu("calculator")}>Számológép</button>
+        <button className="button" onClick={() => setMenu("rps")}>Kő-Papír-Olló</button>
       </div>
       {menu === "calculator" ? <Calculator /> : <RockPaperScissors />}
     </div>
@@ -36,19 +33,19 @@ function Calculator() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-2">Számológép</h2>
-      <div className="border p-2 mb-2 bg-gray-200">{input || "0"}</div>
-      <div className="grid grid-cols-4 gap-2">
+      <h2 className="subtitle">Számológép</h2>
+      <div className="display">{input || "0"}</div>
+      <div className="grid">
         {["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"].map((item) => (
           <button
             key={item}
-            className="p-2 bg-gray-300 rounded"
+            className="grid-button"
             onClick={() => (item === "=" ? calculateResult() : handleClick(item))}
           >
             {item}
           </button>
         ))}
-        <button className="p-2 col-span-2 bg-red-500 text-white rounded" onClick={() => setInput("")}>C</button>
+        <button className="clear-button" onClick={() => setInput("")}>C</button>
       </div>
     </div>
   );
@@ -79,15 +76,15 @@ function RockPaperScissors() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-2">Kő-Papír-Olló</h2>
-      <div className="mb-2">
+      <h2 className="subtitle">Kő-Papír-Olló</h2>
+      <div className="game-status">
         <p>Te: {userChoice || "?"}</p>
         <p>Gép: {computerChoice || "?"}</p>
-        <p className="font-bold">{result}</p>
+        <p className="result">{result}</p>
       </div>
-      <div className="flex justify-around">
+      <div className="choice-buttons">
         {choices.map((choice) => (
-          <button key={choice} className="p-2 bg-blue-500 text-white rounded" onClick={() => playGame(choice)}>
+          <button key={choice} className="button" onClick={() => playGame(choice)}>
             {choice}
           </button>
         ))}

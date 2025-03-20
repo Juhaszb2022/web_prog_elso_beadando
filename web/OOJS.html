@@ -30,7 +30,7 @@
         <div class="contener">
             <!--közepsö block-->
             <div class="midel">
-                 <script>
+                <script>
                     class Animal {
                         constructor(name, sound) {
                             this.name = name;
@@ -40,34 +40,40 @@
                             alert(`${this.name} azt mondja: ${this.sound}`);
                         }
                     }
-            
+                
                     class Dog extends Animal {
                         constructor(name) {
                             super(name, "Vau vau!");
                         }
                     }
-            
+                
                     class Cat extends Animal {
                         constructor(name) {
                             super(name, "Miau!");
                         }
                     }
-            
+                
                     const animals = [
                         new Dog("Bodri"),
                         new Cat("Cirmi"),
                         new Dog("Morzsi"),
                         new Cat("Whiskers")
                     ];
-            
+                
+                    // A "midel" div kiválasztása
+                    const midelDiv = document.querySelector(".midel");
+                
                     animals.forEach(animal => {
                         const div = document.createElement("div");
                         div.className = "animal";
                         div.textContent = animal.name;
                         div.onclick = () => animal.makeSound();
-                        document.body.appendChild(div);
+                        
+                        // A div hozzáadása a "midel" div-hez
+                        midelDiv.appendChild(div);
                     });
                 </script>
+                
             </div>
         </div>
 

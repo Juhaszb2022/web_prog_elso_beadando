@@ -1,42 +1,102 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #222;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.container {
   text-align: center;
+  background: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.button {
+  padding: 10px 20px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.card {
-  padding: 2em;
+.button:hover {
+  background: #666;
 }
 
-.read-the-docs {
-  color: #888;
+.subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.display {
+  background: #555;
+  padding: 10px;
+  border: 1px solid #777;
+  text-align: right;
+  font-size: 24px;
+  margin-bottom: 10px;
+  min-height: 40px;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.grid-button, .clear-button {
+  padding: 10px;
+  font-size: 18px;
+  background: #666;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.grid-button:hover, .clear-button:hover {
+  background: #888;
+}
+
+.clear-button {
+  background: #cc0000;
+  color: white;
+  grid-column: span 2;
+}
+
+.clear-button:hover {
+  background: #990000;
+}
+
+.game-status {
+  margin-bottom: 10px;
+}
+
+.result {
+  font-weight: bold;
+}
+
+.choice-buttons {
+  display: flex;
+  justify-content: space-around;
 }
